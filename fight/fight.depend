@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1379820747 source:/workspace/2dfighting/fight/main.cpp
+	<cstdlib>
+	<stdlib.h>
+	<SDL/SDL.h>
+
