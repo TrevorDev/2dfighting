@@ -1,6 +1,37 @@
 # depslib dependency file v1.0
-1379820747 source:/workspace/2dfighting/fight/main.cpp
+1384137443 source:/workspace/2dfighting/fight/main.cpp
 	<cstdlib>
-	<stdlib.h>
 	<SDL/SDL.h>
+	"Input.h"
+
+1384130221 source:/workspace/2dfighting/fight/src/character.cpp
+	"character.h"
+
+1384130221 /workspace/2dfighting/fight/include/character.h
+
+1384130011 source:/workspace/2dfighting/fight/src/input.cpp
+	"input.h"
+
+1384130011 /workspace/2dfighting/fight/include/input.h
+
+1384130252 source:/workspace/2dfighting/fight/src/projectile.cpp
+	"projectile.h"
+
+1384130252 /workspace/2dfighting/fight/include/projectile.h
+
+1384130038 source:/workspace/2dfighting/fight/src/sprite.cpp
+	"sprite.h"
+
+1384130038 /workspace/2dfighting/fight/include/sprite.h
+
+1384138628 source:/workspace/2dfighting/fight/src/Input.cpp
+	"Input.h"
+
+1384137907 /workspace/2dfighting/fight/include/Input.h
+	<SDL/SDL.h>
+	<string>
+	<iostream>
+	<fstream>
+	<map>
+	<vector>
 
