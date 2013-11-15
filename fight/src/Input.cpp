@@ -19,14 +19,22 @@ Input::Input(std::string file, std::string settings)
                 std::string action = line.substr(0,pos);
                 std::string key=line.substr(pos+1);
                 int keyVal=0;
-                if(key.compare("UP")){
+                if(key.compare("UP")==0){
                     keyVal = SDLK_UP;
+                }else if(key.compare("DOWN")==0){
+                    keyVal = SDLK_DOWN;
+                }else if(key.compare("LEFT")==0){
+                    keyVal = SDLK_LEFT;
+                }else if(key.compare("RIGHT")==0){
+                    keyVal = SDLK_RIGHT;
+                }else if(key.compare("ESC")==0){
+                    keyVal = SDLK_ESCAPE;
+                }else{
+                    keyVal=(int)key[0];
                 }
                 int * val = new int(0);
                 actionValueMap[action]=val;
                 inputValueMap[keyVal]=val;
-                std::cout<<action+"-"+key+"\n";
-
             }
             if(line.substr(1).compare(settings)==0){
                 found = 1;
@@ -38,7 +46,9 @@ Input::Input(std::string file, std::string settings)
 
 Input::~Input()
 {
-    //dtor
+    for (std::map<int,int*>::iterator mit = inputValueMap.begin() ; mit != inputValueMap.end(); ++mit){
+            delete (inputValueMap[mit->first]);
+    }
 }
 
 void Input::update() {
@@ -51,10 +61,27 @@ void Input::update() {
                 // check for keypresses
                 case SDL_KEYDOWN:
                 {
-                    // exit if ESCAPE is pressed
                     for (std::vector<Input *>::iterator it = Input::inputs.begin() ; it != Input::inputs.end(); ++it){
                         Input * input = *it;
                         std::map<int,int*> iMap = input->inputValueMap;
+                        for (std::map<int,int*>::iterator mit = iMap.begin() ; mit != iMap.end(); ++mit){
+                            if (event.key.keysym.sym == mit->first){
+                                (*(iMap[mit->first]))=1;
+                            }
+
+                        }
+                    }
+                    break;
+                }
+                case SDL_KEYUP:
+                {
+                    for (std::vector<Input *>::iterator it = Input::inputs.begin() ; it != Input::inputs.end(); ++it){
+                        Input * input = *it;
+                        std::map<int,int*> iMap = input->inputValueMap;
+                        for (std::map<int,int*>::iterator mit = iMap.begin() ; mit != iMap.end(); ++mit){
+                            if (event.key.keysym.sym == mit->first)
+                                *(mit->second) = 0;
+                        }
                     }
                     if (event.key.keysym.sym == SDLK_ESCAPE)
                     std::cout << "test\n";
@@ -63,4 +90,8 @@ void Input::update() {
             } // end switch
         } // end of message processing
 
+}
+
+int Input::getButtonDown(std::string action){
+    return *(actionValueMap[action]);
 }

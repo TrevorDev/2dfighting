@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+
+<valgrindoutput>
+
+<protocolversion>4</protocolversion>
+<protocoltool>memcheck</protocoltool>
+
+<preamble>
+  <line>Memcheck, a memory error detector</line>
+  <line>Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.</line>
+  <line>Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info</line>
+  <line>Command: bin/Debug/fight  KB&lt;br /&gt;</line>
+</preamble>
+
+<pid>8771</pid>
+<ppid>5609</ppid>
+<tool>memcheck</tool>
+
+<args>
+  <vargv>
+    <exe>/usr/bin/valgrind.bin</exe>
+    <arg>--suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp</arg>
+    <arg>--leak-check=yes</arg>
+    <arg>--xml=yes</arg>
+    <arg>--xml-file=ValgrindOut.xml</arg>
+  </vargv>
+  <argv>
+    <exe>bin/Debug/fight</exe>
+    <arg></arg>
+    <arg>KB&lt;br</arg>
+    <arg>/&gt;</arg>
+  </argv>
+</args>
+
+<status>
+  <state>RUNNING</state>
+  <time>00:00:00:00.036 </time>
+</status>
+
+
+<status>
+  <state>FINISHED</state>
+  <time>00:00:00:05.878 </time>
+</status>
+
+<error>
+  <unique>0x6</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>12 bytes in 2 blocks are definitely lost in loss record 5 of 117</text>
+    <leakedbytes>12</leakedbytes>
+    <leakedblocks>2</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2B6CD</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x5669D81</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.15.so</obj>
+      <fn>strdup</fn>
+      <dir>/build/buildd/eglibc-2.15/string</dir>
+      <file>strdup.c</file>
+      <line>43</line>
+    </frame>
+    <frame>
+      <ip>0x685FA0D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x6860923</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XimSetICValueData</fn>
+    </frame>
+    <frame>
+      <ip>0x685BFDE</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XimLocalCreateIC</fn>
+    </frame>
+    <frame>
+      <ip>0x6841A92</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>XCreateIC</fn>
+    </frame>
+    <frame>
+      <ip>0x4E74476</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+    </frame>
+    <frame>
+      <ip>0x4E753C2</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+    </frame>
+    <frame>
+      <ip>0x4E65A6C</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <fn>SDL_VideoInit</fn>
+    </frame>
+    <frame>
+      <ip>0x4E3C12B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <fn>SDL_InitSubSystem</fn>
+    </frame>
+    <frame>
+      <ip>0x4E3C19B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <fn>SDL_Init</fn>
+    </frame>
+    <frame>
+      <ip>0x401BC7</ip>
+      <obj>/workspace/2dfighting/fight/bin/Debug/fight</obj>
+      <fn>main</fn>
+      <dir>/workspace/2dfighting/fight</dir>
+      <file>main.cpp</file>
+      <line>7</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x61</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>192 (16 direct, 176 indirect) bytes in 1 blocks are definitely lost in loss record 96 of 117</text>
+    <leakedbytes>192</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2B7B2</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>realloc</fn>
+    </frame>
+    <frame>
+      <ip>0x684742B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x68478BD</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x6848E90</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x6849665</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XlcCreateLC</fn>
+    </frame>
+    <frame>
+      <ip>0x6866B4F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XlcDefaultLoader</fn>
+    </frame>
+    <frame>
+      <ip>0x6850A01</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XOpenLC</fn>
+    </frame>
+    <frame>
+      <ip>0x6850B47</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XlcCurrentLC</fn>
+    </frame>
+    <frame>
+      <ip>0x6850B9D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>XSetLocaleModifiers</fn>
+    </frame>
+    <frame>
+      <ip>0x4E7474B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+    </frame>
+    <frame>
+      <ip>0x4E753C2</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+    </frame>
+    <frame>
+      <ip>0x4E65A6C</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <fn>SDL_VideoInit</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x62</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>192 (16 direct, 176 indirect) bytes in 1 blocks are definitely lost in loss record 97 of 117</text>
+    <leakedbytes>192</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2B7B2</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>realloc</fn>
+    </frame>
+    <frame>
+      <ip>0x684742B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x68478BD</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x6848E90</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x6849665</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XlcCreateLC</fn>
+    </frame>
+    <frame>
+      <ip>0x6866B4F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XlcDefaultLoader</fn>
+    </frame>
+    <frame>
+      <ip>0x6850A01</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XOpenLC</fn>
+    </frame>
+    <frame>
+      <ip>0x6850C2A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XrmInitParseInfo</fn>
+    </frame>
+    <frame>
+      <ip>0x6838CEF</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x683C64D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>XrmGetStringDatabase</fn>
+    </frame>
+    <frame>
+      <ip>0x68191C3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+    </frame>
+    <frame>
+      <ip>0x68193D7</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>XGetDefault</fn>
+    </frame>
+  </stack>
+</error>
+
+<errorcounts>
+</errorcounts>
+
+<suppcounts>
+  <pair>
+    <count>2</count>
+    <name>dl-hack3-cond-1</name>
+  </pair>
+</suppcounts>
+
+</valgrindoutput>
+

@@ -15,6 +15,7 @@ class Input
         std::map<std::string,int*> actionValueMap;
         std::map<int,int*> inputValueMap;
 
+        int getButtonDown(std::string action);
 
         static void update();
         Input(std::string file, std::string settings);

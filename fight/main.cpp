@@ -41,7 +41,12 @@ int main ( int argc, char** argv )
     while (!done)
     {
         Input::update();
-
+        if(inputP1->getButtonDown("EXIT")){
+            done=1;
+        }
+        if(inputP1->getButtonDown("LEFT")){
+            dstrect.x++;
+        }
         // DRAWING STARTS HERE
 
         // clear screen
@@ -58,7 +63,8 @@ int main ( int argc, char** argv )
 
     // free loaded bitmap
     SDL_FreeSurface(bmp);
-
+    delete inputP1;
+    SDL_Quit();
     // all is well ;)
     printf("Exited cleanly\n");
     return 0;

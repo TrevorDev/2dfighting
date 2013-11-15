@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1384137443 source:/workspace/2dfighting/fight/main.cpp
+1384402964 source:/workspace/2dfighting/fight/main.cpp
 	<cstdlib>
 	<SDL/SDL.h>
 	"Input.h"
@@ -24,10 +24,10 @@
 
 1384130038 /workspace/2dfighting/fight/include/sprite.h
 
-1384138628 source:/workspace/2dfighting/fight/src/Input.cpp
+1384402995 source:/workspace/2dfighting/fight/src/Input.cpp
 	"Input.h"
 
-1384137907 /workspace/2dfighting/fight/include/Input.h
+1384401936 /workspace/2dfighting/fight/include/Input.h
 	<SDL/SDL.h>
 	<string>
 	<iostream>
