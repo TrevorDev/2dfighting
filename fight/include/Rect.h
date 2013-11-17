@@ -1,16 +1,15 @@
 #ifndef RECT_H
 #define RECT_H
+#include <SDL2/SDL.h>
+#include "Global.h"
 
 
-class Rect
+class Rect : public SDL_Rect
 {
     public:
-        int x;
-        int y;
-        int w;
-        int h;
+        void draw();
 
-        Rect();
+        Rect(int x, int y, int w, int h);
         virtual ~Rect();
     protected:
     private:

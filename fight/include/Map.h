@@ -6,8 +6,11 @@
 class Map
 {
     public:
+        static Map * currentMap;
         std::vector<Rect*> walls;
 
+        static void loadMap(Map * m);
+        void draw();
         Map();
         virtual ~Map();
     protected:

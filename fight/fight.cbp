@@ -41,15 +41,19 @@
 		<Unit filename="cb.bmp" />
 		<Unit filename="game.conf" />
 		<Unit filename="include/Character.h" />
+		<Unit filename="include/Global.h" />
 		<Unit filename="include/Input.h" />
 		<Unit filename="include/LTexture.h" />
 		<Unit filename="include/Map.h" />
+		<Unit filename="include/Player.h" />
 		<Unit filename="include/Rect.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/Global.cpp" />
 		<Unit filename="src/Input.cpp" />
 		<Unit filename="src/LTexture.cpp" />
 		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Rect.cpp" />
 		<Extensions>
 			<code_completion />

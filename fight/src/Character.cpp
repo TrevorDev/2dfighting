@@ -9,3 +9,7 @@ Character::~Character()
 {
     //dtor
 }
+
+void Character::draw(){
+    this->body->draw();
+}
