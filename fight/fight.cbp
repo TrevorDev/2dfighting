@@ -35,13 +35,22 @@
 		</Compiler>
 		<Linker>
 			<Add option="`sdl-config --libs`" />
-			<Add option="-lSDL" />
+			<Add option="-lSDL2" />
+			<Add option="-lSDL2_image" />
 		</Linker>
 		<Unit filename="cb.bmp" />
 		<Unit filename="game.conf" />
+		<Unit filename="include/Character.h" />
 		<Unit filename="include/Input.h" />
+		<Unit filename="include/LTexture.h" />
+		<Unit filename="include/Map.h" />
+		<Unit filename="include/Rect.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Character.cpp" />
 		<Unit filename="src/Input.cpp" />
+		<Unit filename="src/LTexture.cpp" />
+		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/Rect.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
