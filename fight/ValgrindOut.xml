@@ -7,258 +7,3274 @@
 
 <preamble>
   <line>Memcheck, a memory error detector</line>
-  <line>Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.</line>
-  <line>Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info</line>
-  <line>Command: bin/Debug/fight  KB&lt;br /&gt;</line>
+  <line>Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.</line>
+  <line>Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info</line>
+  <line>Command: /home/tb/workspace/2dfighting/fight/bin/Debug/fight </line>
 </preamble>
 
-<pid>8771</pid>
-<ppid>5609</ppid>
+<pid>3559</pid>
+<ppid>2080</ppid>
 <tool>memcheck</tool>
 
 <args>
   <vargv>
     <exe>/usr/bin/valgrind.bin</exe>
     <arg>--suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp</arg>
-    <arg>--leak-check=yes</arg>
+    <arg>--leak-check=full</arg>
+    <arg>--track-origins=yes</arg>
     <arg>--xml=yes</arg>
-    <arg>--xml-file=ValgrindOut.xml</arg>
+    <arg>--xml-file=/home/tb/workspace/2dfighting/fight/ValgrindOut.xml</arg>
   </vargv>
   <argv>
-    <exe>bin/Debug/fight</exe>
+    <exe>/home/tb/workspace/2dfighting/fight/bin/Debug/fight</exe>
     <arg></arg>
-    <arg>KB&lt;br</arg>
-    <arg>/&gt;</arg>
   </argv>
 </args>
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.036 </time>
+  <time>00:00:00:00.074 </time>
 </status>
+
+<error>
+  <unique>0x2</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x59AC3CF</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>__wcscpy_ssse3</fn>
+      <dir>/build/buildd/eglibc-2.17/wcsmbs/../sysdeps/x86_64/multiarch</dir>
+      <file>wcscpy-ssse3.S</file>
+      <line>45</line>
+    </frame>
+    <frame>
+      <ip>0xDE0743C</ip>
+      <obj>/usr/lib/libatiadlxx.so</obj>
+      <fn>LnxXext_GetAPSelectGetProfile</fn>
+    </frame>
+    <frame>
+      <ip>0xDD9AFF5</ip>
+      <obj>/usr/lib/libatiadlxx.so</obj>
+      <fn>Priv_Lnx_ADL_ApplicationProfiles_ProfileOfAnApplication_Search(wchar_t const*, wchar_t const*, wchar_t const*, wchar_t const*, void**, unsigned int*)</fn>
+    </frame>
+    <frame>
+      <ip>0xDDC8173</ip>
+      <obj>/usr/lib/libatiadlxx.so</obj>
+      <fn>ADL2_ApplicationProfiles_ProfileOfAnApplicationX2_Search</fn>
+    </frame>
+    <frame>
+      <ip>0xD5C105F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0xb658d68 is 0 bytes after a block of size 24 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2C494</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>calloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5CED73</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x4</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405B204</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>ukiCreateContext</fn>
+    </frame>
+    <frame>
+      <ip>0xD5AC945</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x100000001</ip>
+    </frame>
+    <frame>
+      <ip>0xD6938EF</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xB65B90F</ip>
+    </frame>
+    <frame>
+      <ip>0xD5EC3EA</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7feffdc78 is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xBC52C20</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x5</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xD5FD5D4</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xD5FCD33</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xD5FCFAC</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xD5EA85C</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x20000000E</ip>
+    </frame>
+    <frame>
+      <ip>0x100000001</ip>
+    </frame>
+    <frame>
+      <ip>0xD692B11</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x30000000E</ip>
+    </frame>
+    <frame>
+      <ip>0x100000001</ip>
+    </frame>
+    <frame>
+      <ip>0xD692B24</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xB65B90F</ip>
+    </frame>
+    <frame>
+      <ip>0xB65B8E7</ip>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD5FD53F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x7</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF27F</ip>
+    </frame>
+    <frame>
+      <ip>0xE23CE0F</ip>
+    </frame>
+    <frame>
+      <ip>0xE23CE0F</ip>
+    </frame>
+    <frame>
+      <ip>0xE23BD7F</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF2EF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF0FF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF45F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF44F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21bb18 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x2b</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 2</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E826</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA888B6</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21b926 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0xbf</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA8692D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21b748 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x297</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF7B7</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21bd28 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x34d</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF23F</ip>
+    </frame>
+    <frame>
+      <ip>0xE933D2F</ip>
+    </frame>
+    <frame>
+      <ip>0xE933D2F</ip>
+    </frame>
+    <frame>
+      <ip>0xE932CEF</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF2AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF0BF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF41F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF40F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21ba00 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x45a</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 1</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7A0</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21b53b is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x45e</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21b530 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x56c</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF83F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21bf48 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x582</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFF17</ip>
+    </frame>
+    <frame>
+      <ip>0xEAFECA7</ip>
+    </frame>
+    <frame>
+      <ip>0xE123B4F</ip>
+    </frame>
+    <frame>
+      <ip>0xB83273F</ip>
+    </frame>
+    <frame>
+      <ip>0x4FFFFFFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x100000000</ip>
+    </frame>
+    <frame>
+      <ip>0x10B83E100</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFFFE</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21bd48 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x598</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405D897</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>uki_firegl_MapLockPageTableNew</fn>
+    </frame>
+    <frame>
+      <ip>0xD42A983</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xECB844F</ip>
+    </frame>
+    <frame>
+      <ip>0xECB870F</ip>
+    </frame>
+    <frame>
+      <ip>0x40626BF</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+    </frame>
+    <frame>
+      <ip>0x5883685</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>getenv</fn>
+      <dir>/build/buildd/eglibc-2.17/stdlib</dir>
+      <file>getenv.c</file>
+      <line>36</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefff628 is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xBC530F0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x599</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405D8C2</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>uki_firegl_MapLockPageTableNew</fn>
+    </frame>
+    <frame>
+      <ip>0xD42A983</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xECB844F</ip>
+    </frame>
+    <frame>
+      <ip>0xECB870F</ip>
+    </frame>
+    <frame>
+      <ip>0x40626BF</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+    </frame>
+    <frame>
+      <ip>0x5883685</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>getenv</fn>
+      <dir>/build/buildd/eglibc-2.17/stdlib</dir>
+      <file>getenv.c</file>
+      <line>36</line>
+    </frame>
+    <frame>
+      <ip>0x40027FFF</ip>
+    </frame>
+    <frame>
+      <ip>0xECCF69F</ip>
+    </frame>
+    <frame>
+      <ip>0xDD6E4DF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefff618 is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xBC530F0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x59a</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405D71A</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>uki_firegl_ClearDirtyPagesNew</fn>
+    </frame>
+    <frame>
+      <ip>0xD4291B6</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF78F</ip>
+    </frame>
+    <frame>
+      <ip>0xF9</ip>
+    </frame>
+    <frame>
+      <ip>0x237</ip>
+    </frame>
+    <frame>
+      <ip>0xFBAD000B</ip>
+    </frame>
+    <frame>
+      <ip>0xECD0A8F</ip>
+    </frame>
+    <frame>
+      <ip>0xECD187F</ip>
+    </frame>
+    <frame>
+      <ip>0xECD9B7F</ip>
+    </frame>
+    <frame>
+      <ip>0xDD6E4BF</ip>
+    </frame>
+    <frame>
+      <ip>0x760000007F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefff6fc is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD42A900</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x59b</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405DAE1</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>uki_firegl_UnMapLockPageTableNew</fn>
+    </frame>
+    <frame>
+      <ip>0xD42A94A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xECD9C7F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefff7f0 is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xBC532B0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x67a</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFED7F</ip>
+    </frame>
+    <frame>
+      <ip>0xEE7BE6F</ip>
+    </frame>
+    <frame>
+      <ip>0xEE7BE6F</ip>
+    </frame>
+    <frame>
+      <ip>0xEF721BF</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEDEF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEBFF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEF5F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEF4F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21b638 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x6c2</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFED7F</ip>
+    </frame>
+    <frame>
+      <ip>0xEF78CBF</ip>
+    </frame>
+    <frame>
+      <ip>0xEF78CBF</ip>
+    </frame>
+    <frame>
+      <ip>0xF08A43F</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEDEF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEBFF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEF5F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEF4F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21b378 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x712</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFED7F</ip>
+    </frame>
+    <frame>
+      <ip>0xF090FDF</ip>
+    </frame>
+    <frame>
+      <ip>0xF090FDF</ip>
+    </frame>
+    <frame>
+      <ip>0xF1872FF</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEDEF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEBFF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEF5F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEF4F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21b038 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x75a</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 1</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7A0</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21bd0b is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x75e</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21bd00 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x769</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x3000000FF</ip>
+    </frame>
+    <frame>
+      <ip>0x3F7FFFFFFFFFFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x3F8000003F7FFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x3F8000003F7FFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x4FFFFFFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x100000000</ip>
+    </frame>
+    <frame>
+      <ip>0xE126700</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFFFE</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21bb48 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x77f</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 4</what>
+  <stack>
+    <frame>
+      <ip>0xC7AE719</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d21b900 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x780</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 1</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7A0</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d7f8aeb is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x784</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d7f8ae0 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x1ae1</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F4602</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x2DEACFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x62700000027</ip>
+    </frame>
+    <frame>
+      <ip>0x1F</ip>
+    </frame>
+    <frame>
+      <ip>0xFF</ip>
+    </frame>
+    <frame>
+      <ip>0xFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1f5928 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x1ae7</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0xC7AE560</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1db800 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x1ae8</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0xC7AE567</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1db808 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x1e3f</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0xF20D43F</ip>
+    </frame>
+    <frame>
+      <ip>0x4FFFFFFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x100000000</ip>
+    </frame>
+    <frame>
+      <ip>0xE0FD500</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFFFE</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dbb48 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x1e49</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF17F</ip>
+    </frame>
+    <frame>
+      <ip>0xF2F859F</ip>
+    </frame>
+    <frame>
+      <ip>0xF2F859F</ip>
+    </frame>
+    <frame>
+      <ip>0xF2F754F</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF1EF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEFFF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF35F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF34F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dba00 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x1e72</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF2BF</ip>
+    </frame>
+    <frame>
+      <ip>0xF5009CF</ip>
+    </frame>
+    <frame>
+      <ip>0xF5009CF</ip>
+    </frame>
+    <frame>
+      <ip>0xF4FEFAF</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF32F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF13F</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF49F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF48F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1db738 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x2596</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F4602</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1f7908 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x26f7</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE79F</ip>
+    </frame>
+    <frame>
+      <ip>0xB5A701F</ip>
+    </frame>
+    <frame>
+      <ip>0xB5A701F</ip>
+    </frame>
+    <frame>
+      <ip>0xB56027F</ip>
+    </frame>
+    <frame>
+      <ip>0xB81C0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE80F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE61F</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE97F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE96F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dba18 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x271b</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xBCA4FF5</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x3F7FFFFFFFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x271c</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xBCA4FF9</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x3F7FFFFFFFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x271d</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xBCA5012</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x3F7FFFFFFFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x271e</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xBCA5016</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x3F7FFFFFFFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x271f</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xBCA501A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x3F7FFFFFFFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x2720</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xBCB9A44</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFFFE</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFFFE</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFCFDFEFFF91F</ip>
+    </frame>
+    <frame>
+      <ip>0xB83EFAF</ip>
+    </frame>
+    <frame>
+      <ip>0xB84106B</ip>
+    </frame>
+    <frame>
+      <ip>0xB83E1CF</ip>
+    </frame>
+    <frame>
+      <ip>0xB83E1CF</ip>
+    </frame>
+    <frame>
+      <ip>0xBCAC060</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x3227</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x2F</ip>
+    </frame>
+    <frame>
+      <ip>0x37</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFDBBF</ip>
+    </frame>
+    <frame>
+      <ip>0xD7</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFDCDF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d8f0598 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x32db</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFDCEB</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d8f25d0 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x3398</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xE03C66F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFDF6F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF28F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF09F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF2AF</ip>
+    </frame>
+    <frame>
+      <ip>0x900000003</ip>
+    </frame>
+    <frame>
+      <ip>0x7FFFFFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x1000001FF</ip>
+    </frame>
+    <frame>
+      <ip>0x1000001FF</ip>
+    </frame>
+    <frame>
+      <ip>0xF3FFE9DFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d8fc118 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x43bc</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F4602</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x36</ip>
+    </frame>
+    <frame>
+      <ip>0x3</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1fad08 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x4470</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F4602</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF0EF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dc018 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x4474</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF13F</ip>
+    </frame>
+    <frame>
+      <ip>0xE4E3EFF</ip>
+    </frame>
+    <frame>
+      <ip>0xE4E3EFF</ip>
+    </frame>
+    <frame>
+      <ip>0xE4E2E6F</ip>
+    </frame>
+    <frame>
+      <ip>0xE38D3CF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF1AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEFBF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF31F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF30F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dbb18 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x4704</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF677</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dbd28 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x47ba</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF0FF</ip>
+    </frame>
+    <frame>
+      <ip>0xEB2BEAF</ip>
+    </frame>
+    <frame>
+      <ip>0xEB2BEAF</ip>
+    </frame>
+    <frame>
+      <ip>0xEB13BAF</ip>
+    </frame>
+    <frame>
+      <ip>0xE38D3CF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF16F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEF7F</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF2DF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF2CF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dba00 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x49d9</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF6FF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dbf48 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x49ef</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xC5E930B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFF17</ip>
+    </frame>
+    <frame>
+      <ip>0xEDCF5A7</ip>
+    </frame>
+    <frame>
+      <ip>0xB49726F</ip>
+    </frame>
+    <frame>
+      <ip>0xE3957EF</ip>
+    </frame>
+    <frame>
+      <ip>0x4FFFFFFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x100000000</ip>
+    </frame>
+    <frame>
+      <ip>0x10E384E00</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFFFE</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dbd48 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x4a05</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405D897</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>uki_firegl_MapLockPageTableNew</fn>
+    </frame>
+    <frame>
+      <ip>0xD42A983</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xEFE772F</ip>
+    </frame>
+    <frame>
+      <ip>0xEFE79EF</ip>
+    </frame>
+    <frame>
+      <ip>0xEFE7CAF</ip>
+    </frame>
+    <frame>
+      <ip>0xEFE7F6F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefff4e8 is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xBC530F0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x4a06</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405D8C2</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>uki_firegl_MapLockPageTableNew</fn>
+    </frame>
+    <frame>
+      <ip>0xD42A983</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xEFE772F</ip>
+    </frame>
+    <frame>
+      <ip>0xEFE79EF</ip>
+    </frame>
+    <frame>
+      <ip>0xEFE7CAF</ip>
+    </frame>
+    <frame>
+      <ip>0xEFE7F6F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefff4d8 is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xBC530F0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x4a07</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405D71A</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>uki_firegl_ClearDirtyPagesNew</fn>
+    </frame>
+    <frame>
+      <ip>0xD4291B6</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x3FFFFFF17</ip>
+    </frame>
+    <frame>
+      <ip>0xE4B00DF</ip>
+    </frame>
+    <frame>
+      <ip>0xE4B00DF</ip>
+    </frame>
+    <frame>
+      <ip>0xE3957EF</ip>
+    </frame>
+    <frame>
+      <ip>0x102</ip>
+    </frame>
+    <frame>
+      <ip>0xEFEB01F</ip>
+    </frame>
+    <frame>
+      <ip>0xEFF331F</ip>
+    </frame>
+    <frame>
+      <ip>0xDD6E4BF</ip>
+    </frame>
+    <frame>
+      <ip>0x770000007F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefff5bc is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xD42A900</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x4a08</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405DAE1</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>uki_firegl_UnMapLockPageTableNew</fn>
+    </frame>
+    <frame>
+      <ip>0xD42A94A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xEFF341F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefff6b0 is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xBC532B0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x4ae7</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEC3F</ip>
+    </frame>
+    <frame>
+      <ip>0xF08FEDF</ip>
+    </frame>
+    <frame>
+      <ip>0xF08FEDF</ip>
+    </frame>
+    <frame>
+      <ip>0xF427E0F</ip>
+    </frame>
+    <frame>
+      <ip>0xE38D3CF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFECAF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEABF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEE1F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEE0F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1db638 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x4b2f</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEC3F</ip>
+    </frame>
+    <frame>
+      <ip>0xF2FB58F</ip>
+    </frame>
+    <frame>
+      <ip>0xF2FB58F</ip>
+    </frame>
+    <frame>
+      <ip>0xF5028CF</ip>
+    </frame>
+    <frame>
+      <ip>0xE38D3CF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFECAF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEABF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEE1F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEE0F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1db378 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x4b7f</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEC3F</ip>
+    </frame>
+    <frame>
+      <ip>0xF504EDF</ip>
+    </frame>
+    <frame>
+      <ip>0xF504EDF</ip>
+    </frame>
+    <frame>
+      <ip>0xF55301F</ip>
+    </frame>
+    <frame>
+      <ip>0xE38D3CF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFECAF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEABF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEE1F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEE0F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1db038 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x62ac</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF03F</ip>
+    </frame>
+    <frame>
+      <ip>0xB4D7AFF</ip>
+    </frame>
+    <frame>
+      <ip>0xB4D7AFF</ip>
+    </frame>
+    <frame>
+      <ip>0xF75CCDF</ip>
+    </frame>
+    <frame>
+      <ip>0xE38D3CF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF0AF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEEBF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF21F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF20F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1db800 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x62d5</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF17F</ip>
+    </frame>
+    <frame>
+      <ip>0xB4CD13F</ip>
+    </frame>
+    <frame>
+      <ip>0xB4CD13F</ip>
+    </frame>
+    <frame>
+      <ip>0xF26C5DF</ip>
+    </frame>
+    <frame>
+      <ip>0xE38D3CF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF1EF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEFFF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF35F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF34F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1db538 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x69fb</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xB60BFAF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d249570 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x6aaa</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 1</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7A0</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFD9EF</ip>
+    </frame>
+    <frame>
+      <ip>0xD5FD234</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x6803030000000F</ip>
+    </frame>
+    <frame>
+      <ip>0x2DEACFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x1000180000000067</ip>
+    </frame>
+    <frame>
+      <ip>0x400000009</ip>
+    </frame>
+    <frame>
+      <ip>0x577FFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d24b563 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x6aae</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFD9EF</ip>
+    </frame>
+    <frame>
+      <ip>0xD5FD234</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x6803030000000F</ip>
+    </frame>
+    <frame>
+      <ip>0x2DEACFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x1000180000000067</ip>
+    </frame>
+    <frame>
+      <ip>0x400000009</ip>
+    </frame>
+    <frame>
+      <ip>0x577FFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d24b558 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x6c0a</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xCA86BC0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE64F</ip>
+    </frame>
+    <frame>
+      <ip>0xE09497F</ip>
+    </frame>
+    <frame>
+      <ip>0xE09497F</ip>
+    </frame>
+    <frame>
+      <ip>0xE08E8FF</ip>
+    </frame>
+    <frame>
+      <ip>0xE38D3CF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE6BF</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE4CF</ip>
+    </frame>
+    <frame>
+      <ip>0xCCFCFE3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE82F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFE81F</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dbb18 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x6c33</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0xBCB9A44</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFFFE</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFFFFFFFFFE</ip>
+    </frame>
+    <frame>
+      <ip>0xFFFFFCFDFEFFF7CF</ip>
+    </frame>
+    <frame>
+      <ip>0xE385C9F</ip>
+    </frame>
+    <frame>
+      <ip>0xE387D5B</ip>
+    </frame>
+    <frame>
+      <ip>0xE384EBF</ip>
+    </frame>
+    <frame>
+      <ip>0xE384EBF</ip>
+    </frame>
+    <frame>
+      <ip>0xBCAC060</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x77ee</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xB5983AF</ip>
+    </frame>
+    <frame>
+      <ip>0xCA23FB6</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d23a5d0 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x88cf</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F4602</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x3C</ip>
+    </frame>
+    <frame>
+      <ip>0x3</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d1dc208 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x88d1</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF14F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF01F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF01F</ip>
+    </frame>
+    <frame>
+      <ip>0xD5F4813</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x8</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d22f570 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x8980</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 1</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7A0</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFDDDF</ip>
+    </frame>
+    <frame>
+      <ip>0xD5FD234</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x6803030000000F</ip>
+    </frame>
+    <frame>
+      <ip>0x2DEACFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x1000180000000067</ip>
+    </frame>
+    <frame>
+      <ip>0xB0000000A</ip>
+    </frame>
+    <frame>
+      <ip>0x577FFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d231563 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x8984</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4C2E7C5</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>memcpy@GLIBC_2.2.5</fn>
+    </frame>
+    <frame>
+      <ip>0xD5F3D9A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFDDDF</ip>
+    </frame>
+    <frame>
+      <ip>0xD5FD234</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x6803030000000F</ip>
+    </frame>
+    <frame>
+      <ip>0x2DEACFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x1000180000000067</ip>
+    </frame>
+    <frame>
+      <ip>0xB0000000A</ip>
+    </frame>
+    <frame>
+      <ip>0x577FFFFFFFF</ip>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7f088d231558 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<error>
+  <unique>0x8a30</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param ioctl(generic) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x593A2F7</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
+      <fn>ioctl</fn>
+      <dir>/build/buildd/eglibc-2.17/misc/../sysdeps/unix</dir>
+      <file>syscall-template.S</file>
+      <line>81</line>
+    </frame>
+    <frame>
+      <ip>0x405B369</ip>
+      <obj>/usr/lib/libatiuki.so.1.0</obj>
+      <fn>ukiDestroyContext</fn>
+    </frame>
+    <frame>
+      <ip>0xD5AC8CA</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xB65C83F</ip>
+    </frame>
+    <frame>
+      <ip>0xD5EC23B</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x7fefffe64 is on thread 1's stack</auxwhat>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0xBC536E0</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
 
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:00:05.878 </time>
+  <time>00:00:00:17.122 </time>
 </status>
 
 <error>
-  <unique>0x6</unique>
+  <unique>0x8a38</unique>
   <tid>1</tid>
   <kind>Leak_DefinitelyLost</kind>
   <xwhat>
-    <text>12 bytes in 2 blocks are definitely lost in loss record 5 of 117</text>
+    <text>12 bytes in 2 blocks are definitely lost in loss record 8 of 121</text>
     <leakedbytes>12</leakedbytes>
     <leakedblocks>2</leakedblocks>
   </xwhat>
   <stack>
     <frame>
-      <ip>0x4C2B6CD</ip>
+      <ip>0x4C2A2DB</ip>
       <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x5669D81</ip>
-      <obj>/lib/x86_64-linux-gnu/libc-2.15.so</obj>
+      <ip>0x58D18C1</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.17.so</obj>
       <fn>strdup</fn>
-      <dir>/build/buildd/eglibc-2.15/string</dir>
+      <dir>/build/buildd/eglibc-2.17/string</dir>
       <file>strdup.c</file>
-      <line>43</line>
+      <line>42</line>
     </frame>
     <frame>
-      <ip>0x685FA0D</ip>
+      <ip>0x68BAF86</ip>
       <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
     </frame>
     <frame>
-      <ip>0x6860923</ip>
+      <ip>0x68BBD94</ip>
       <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
       <fn>_XimSetICValueData</fn>
     </frame>
     <frame>
-      <ip>0x685BFDE</ip>
+      <ip>0x68B7439</ip>
       <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
       <fn>_XimLocalCreateIC</fn>
     </frame>
     <frame>
-      <ip>0x6841A92</ip>
+      <ip>0x689D9A4</ip>
       <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
       <fn>XCreateIC</fn>
     </frame>
     <frame>
-      <ip>0x4E74476</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <ip>0x4ED552A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
     </frame>
     <frame>
-      <ip>0x4E753C2</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <ip>0x4ED58F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
     </frame>
     <frame>
-      <ip>0x4E65A6C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <ip>0x4ECAE34</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
+      <fn>SDL_CreateWindow</fn>
+    </frame>
+    <frame>
+      <ip>0x4ECAC3F</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
       <fn>SDL_VideoInit</fn>
     </frame>
     <frame>
-      <ip>0x4E3C12B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <ip>0x4E463AE</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
       <fn>SDL_InitSubSystem</fn>
     </frame>
     <frame>
-      <ip>0x4E3C19B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
-      <fn>SDL_Init</fn>
-    </frame>
-    <frame>
-      <ip>0x401BC7</ip>
-      <obj>/workspace/2dfighting/fight/bin/Debug/fight</obj>
+      <ip>0x401BF7</ip>
+      <obj>/home/tb/workspace/2dfighting/fight/bin/Debug/fight</obj>
       <fn>main</fn>
-      <dir>/workspace/2dfighting/fight</dir>
+      <dir>/home/tb/workspace/2dfighting/fight</dir>
       <file>main.cpp</file>
-      <line>7</line>
+      <line>70</line>
     </frame>
   </stack>
 </error>
 
 <error>
-  <unique>0x61</unique>
+  <unique>0x8a4e</unique>
   <tid>1</tid>
   <kind>Leak_DefinitelyLost</kind>
   <xwhat>
-    <text>192 (16 direct, 176 indirect) bytes in 1 blocks are definitely lost in loss record 96 of 117</text>
-    <leakedbytes>192</leakedbytes>
+    <text>32 bytes in 1 blocks are definitely lost in loss record 30 of 121</text>
+    <leakedbytes>32</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
   <stack>
     <frame>
-      <ip>0x4C2B7B2</ip>
+      <ip>0x4C2A2DB</ip>
       <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>realloc</fn>
+      <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x684742B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <ip>0x73BACDA</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0</obj>
     </frame>
     <frame>
-      <ip>0x68478BD</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <ip>0x73BB359</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0</obj>
+      <fn>XRRQueryVersion</fn>
     </frame>
     <frame>
-      <ip>0x6848E90</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <ip>0x4ED17E6</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
     </frame>
     <frame>
-      <ip>0x6849665</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>_XlcCreateLC</fn>
+      <ip>0x4ED43D5</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
     </frame>
     <frame>
-      <ip>0x6866B4F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>_XlcDefaultLoader</fn>
-    </frame>
-    <frame>
-      <ip>0x6850A01</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>_XOpenLC</fn>
-    </frame>
-    <frame>
-      <ip>0x6850B47</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>_XlcCurrentLC</fn>
-    </frame>
-    <frame>
-      <ip>0x6850B9D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>XSetLocaleModifiers</fn>
-    </frame>
-    <frame>
-      <ip>0x4E7474B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
-    </frame>
-    <frame>
-      <ip>0x4E753C2</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
-    </frame>
-    <frame>
-      <ip>0x4E65A6C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libSDL-1.2.so.0.11.3</obj>
+      <ip>0x4ECAA97</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
       <fn>SDL_VideoInit</fn>
     </frame>
+    <frame>
+      <ip>0x4E463AE</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.0.0</obj>
+      <fn>SDL_InitSubSystem</fn>
+    </frame>
+    <frame>
+      <ip>0x401BF7</ip>
+      <obj>/home/tb/workspace/2dfighting/fight/bin/Debug/fight</obj>
+      <fn>main</fn>
+      <dir>/home/tb/workspace/2dfighting/fight</dir>
+      <file>main.cpp</file>
+      <line>70</line>
+    </frame>
   </stack>
 </error>
 
 <error>
-  <unique>0x62</unique>
+  <unique>0x8a54</unique>
   <tid>1</tid>
   <kind>Leak_DefinitelyLost</kind>
   <xwhat>
-    <text>192 (16 direct, 176 indirect) bytes in 1 blocks are definitely lost in loss record 97 of 117</text>
-    <leakedbytes>192</leakedbytes>
+    <text>40 bytes in 1 blocks are definitely lost in loss record 36 of 121</text>
+    <leakedbytes>40</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
   <stack>
     <frame>
-      <ip>0x4C2B7B2</ip>
+      <ip>0x4C2A2DB</ip>
       <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>realloc</fn>
+      <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x684742B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <ip>0xD5AB3C1</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
     </frame>
     <frame>
-      <ip>0x68478BD</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <ip>0x1101</ip>
     </frame>
     <frame>
-      <ip>0x6848E90</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <ip>0x3802B6EF</ip>
+      <obj>/usr/lib/valgrind/memcheck-amd64-linux</obj>
     </frame>
     <frame>
-      <ip>0x6849665</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>_XlcCreateLC</fn>
+      <ip>0xB5EEB0F</ip>
     </frame>
     <frame>
-      <ip>0x6866B4F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>_XlcDefaultLoader</fn>
+      <ip>0xB5EEB0F</ip>
     </frame>
     <frame>
-      <ip>0x6850A01</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>_XOpenLC</fn>
+      <ip>0xB5DDD07</ip>
     </frame>
     <frame>
-      <ip>0x6850C2A</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>_XrmInitParseInfo</fn>
+      <ip>0xB5DDD07</ip>
     </frame>
     <frame>
-      <ip>0x6838CEF</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <ip>0xB45470F</ip>
     </frame>
     <frame>
-      <ip>0x683C64D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>XrmGetStringDatabase</fn>
+      <ip>0xB5DDC6F</ip>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x8a97</unique>
+  <tid>1</tid>
+  <kind>Leak_PossiblyLost</kind>
+  <xwhat>
+    <text>1,400 bytes in 1 blocks are possibly lost in loss record 103 of 121</text>
+    <leakedbytes>1400</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x68191C3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
     </frame>
     <frame>
-      <ip>0x68193D7</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
-      <fn>XGetDefault</fn>
+      <ip>0xB554CF7</ip>
+    </frame>
+    <frame>
+      <ip>0xD581111</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x39</ip>
+    </frame>
+    <frame>
+      <ip>0x1F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFF94B7</ip>
+    </frame>
+    <frame>
+      <ip>0xDD6F517</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFF970F</ip>
+    </frame>
+    <frame>
+      <ip>0xD581209</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFF93CF</ip>
+    </frame>
+    <frame>
+      <ip>0x14FEFF95FF</ip>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x8aa0</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>4,144 (48 direct, 4,096 indirect) bytes in 1 blocks are definitely lost in loss record 112 of 121</text>
+    <leakedbytes>4144</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xCD2D07D</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x8aa4</unique>
+  <tid>1</tid>
+  <kind>Leak_PossiblyLost</kind>
+  <xwhat>
+    <text>6,624 bytes in 1 blocks are possibly lost in loss record 116 of 121</text>
+    <leakedbytes>6624</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEDB7</ip>
+    </frame>
+    <frame>
+      <ip>0xD581111</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF00F</ip>
+    </frame>
+    <frame>
+      <ip>0x3F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFED8F</ip>
+    </frame>
+    <frame>
+      <ip>0xDD6F537</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFEFDF</ip>
+    </frame>
+    <frame>
+      <ip>0xD581209</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF00F</ip>
+    </frame>
+    <frame>
+      <ip>0x14FEFFF00F</ip>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x8aa7</unique>
+  <tid>1</tid>
+  <kind>Leak_PossiblyLost</kind>
+  <xwhat>
+    <text>15,928 bytes in 3 blocks are possibly lost in loss record 119 of 121</text>
+    <leakedbytes>15928</leakedbytes>
+    <leakedblocks>3</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF48F</ip>
+    </frame>
+    <frame>
+      <ip>0xD581111</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+    <frame>
+      <ip>0xFFFFFFFF</ip>
+    </frame>
+    <frame>
+      <ip>0x2F</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF3BF</ip>
+    </frame>
+    <frame>
+      <ip>0xDD6F527</ip>
+    </frame>
+    <frame>
+      <ip>0x7FEFFF4FF</ip>
+    </frame>
+    <frame>
+      <ip>0xD581209</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x8aa8</unique>
+  <tid>1</tid>
+  <kind>Leak_PossiblyLost</kind>
+  <xwhat>
+    <text>23,024 bytes in 5 blocks are possibly lost in loss record 120 of 121</text>
+    <leakedbytes>23024</leakedbytes>
+    <leakedblocks>5</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2A2DB</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0xD5819F8</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/dri/fglrx_dri.so</obj>
     </frame>
   </stack>
 </error>
 
 <errorcounts>
+  <pair>
+    <count>1</count>
+    <unique>0x8a30</unique>
+  </pair>
+  <pair>
+    <count>172</count>
+    <unique>0x8984</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x8980</unique>
+  </pair>
+  <pair>
+    <count>175</count>
+    <unique>0x88d1</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x88cf</unique>
+  </pair>
+  <pair>
+    <count>4319</count>
+    <unique>0x77ee</unique>
+  </pair>
+  <pair>
+    <count>12</count>
+    <unique>0x2596</unique>
+  </pair>
+  <pair>
+    <count>360</count>
+    <unique>0x3227</unique>
+  </pair>
+  <pair>
+    <count>21090</count>
+    <unique>0x784</unique>
+  </pair>
+  <pair>
+    <count>28</count>
+    <unique>0x780</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x6c33</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x271f</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x271e</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x271d</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x271c</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x271b</unique>
+  </pair>
+  <pair>
+    <count>36</count>
+    <unique>0x6c0a</unique>
+  </pair>
+  <pair>
+    <count>172</count>
+    <unique>0x6aae</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x6aaa</unique>
+  </pair>
+  <pair>
+    <count>175</count>
+    <unique>0x69fb</unique>
+  </pair>
+  <pair>
+    <count>3272</count>
+    <unique>0x2b</unique>
+  </pair>
+  <pair>
+    <count>40</count>
+    <unique>0x62d5</unique>
+  </pair>
+  <pair>
+    <count>272</count>
+    <unique>0xbf</unique>
+  </pair>
+  <pair>
+    <count>33</count>
+    <unique>0x62ac</unique>
+  </pair>
+  <pair>
+    <count>20</count>
+    <unique>0x1e3f</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x1ae8</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x1ae7</unique>
+  </pair>
+  <pair>
+    <count>8</count>
+    <unique>0x1ae1</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x77f</unique>
+  </pair>
+  <pair>
+    <count>20</count>
+    <unique>0x769</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x75e</unique>
+  </pair>
+  <pair>
+    <count>8</count>
+    <unique>0x75a</unique>
+  </pair>
+  <pair>
+    <count>72</count>
+    <unique>0x4b7f</unique>
+  </pair>
+  <pair>
+    <count>80</count>
+    <unique>0x4b2f</unique>
+  </pair>
+  <pair>
+    <count>72</count>
+    <unique>0x4ae7</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x4a08</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x4a07</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x4a06</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x4a05</unique>
+  </pair>
+  <pair>
+    <count>10</count>
+    <unique>0x49ef</unique>
+  </pair>
+  <pair>
+    <count>10</count>
+    <unique>0x49d9</unique>
+  </pair>
+  <pair>
+    <count>28</count>
+    <unique>0x45e</unique>
+  </pair>
+  <pair>
+    <count>16</count>
+    <unique>0x45a</unique>
+  </pair>
+  <pair>
+    <count>33</count>
+    <unique>0x47ba</unique>
+  </pair>
+  <pair>
+    <count>6</count>
+    <unique>0x4704</unique>
+  </pair>
+  <pair>
+    <count>36</count>
+    <unique>0x4474</unique>
+  </pair>
+  <pair>
+    <count>4</count>
+    <unique>0x4470</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x43bc</unique>
+  </pair>
+  <pair>
+    <count>4132</count>
+    <unique>0x3398</unique>
+  </pair>
+  <pair>
+    <count>187</count>
+    <unique>0x32db</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x2720</unique>
+  </pair>
+  <pair>
+    <count>36</count>
+    <unique>0x26f7</unique>
+  </pair>
+  <pair>
+    <count>40</count>
+    <unique>0x1e72</unique>
+  </pair>
+  <pair>
+    <count>33</count>
+    <unique>0x1e49</unique>
+  </pair>
+  <pair>
+    <count>72</count>
+    <unique>0x712</unique>
+  </pair>
+  <pair>
+    <count>80</count>
+    <unique>0x6c2</unique>
+  </pair>
+  <pair>
+    <count>72</count>
+    <unique>0x67a</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x59b</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x59a</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x599</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x598</unique>
+  </pair>
+  <pair>
+    <count>10</count>
+    <unique>0x582</unique>
+  </pair>
+  <pair>
+    <count>10</count>
+    <unique>0x56c</unique>
+  </pair>
+  <pair>
+    <count>33</count>
+    <unique>0x34d</unique>
+  </pair>
+  <pair>
+    <count>6</count>
+    <unique>0x297</unique>
+  </pair>
+  <pair>
+    <count>36</count>
+    <unique>0x7</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x5</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x4</unique>
+  </pair>
+  <pair>
+    <count>2</count>
+    <unique>0x2</unique>
+  </pair>
 </errorcounts>
 
 <suppcounts>
+  <pair>
+    <count>4</count>
+    <name>X on SUSE11 writev uninit padding</name>
+  </pair>
   <pair>
     <count>2</count>
     <name>dl-hack3-cond-1</name>

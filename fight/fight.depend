@@ -70,3 +70,34 @@
 
 1384574767 /workspace/2dfighting/fight/include/Global.h
 
+1384640748 source:/home/tb/workspace/2dfighting/fight/src/Input.cpp
+	"Input.h"
+
+1384641457 /home/tb/workspace/2dfighting/fight/include/Input.h
+	<SDL2/SDL.h>
+	<string>
+	<iostream>
+	<fstream>
+	<map>
+	<vector>
+
+1384647593 source:/home/tb/workspace/2dfighting/fight/main.cpp
+	<cstdlib>
+	<SDL2/SDL.h>
+	"Input.h"
+	<SDL2/SDL_image.h>
+	<stdio.h>
+	<string>
+	"LTexture.h"
+
+1384646325 /home/tb/workspace/2dfighting/fight/include/LTexture.h
+	<cstdlib>
+	<SDL2/SDL.h>
+	"Input.h"
+	<SDL2/SDL_image.h>
+	<stdio.h>
+	<string>
+
+1384646336 source:/home/tb/workspace/2dfighting/fight/src/LTexture.cpp
+	"LTexture.h"
+
