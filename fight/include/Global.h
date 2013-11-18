@@ -14,6 +14,9 @@ class Global
         static int SCREEN_WIDTH;
         static int SCREEN_HEIGHT;
 
+        static int GRAVITY;
+        static float deltaSeconds;
+
         static int init();
         static void exit();
         Global();

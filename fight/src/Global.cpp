@@ -4,7 +4,8 @@ SDL_Window* Global::gameWindow;
 SDL_Renderer* Global::gameRenderer;
 int Global::SCREEN_WIDTH;
 int Global::SCREEN_HEIGHT;
-
+int Global::GRAVITY;
+float Global::deltaSeconds;
 
 Global::Global()
 {
@@ -19,6 +20,8 @@ Global::~Global()
 int Global::init(){
     Global::SCREEN_WIDTH=960;
     Global::SCREEN_HEIGHT=540;
+
+    Global::GRAVITY=840;
 
     //Initialize SDL
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )

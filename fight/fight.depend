@@ -81,7 +81,7 @@
 	<map>
 	<vector>
 
-1384658882 source:/home/tb/workspace/2dfighting/fight/main.cpp
+1384750594 source:/home/tb/workspace/2dfighting/fight/main.cpp
 	<cstdlib>
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -92,6 +92,7 @@
 	"Map.h"
 	"Input.h"
 	"Player.h"
+	"Timer.h"
 
 1384646325 /home/tb/workspace/2dfighting/fight/include/LTexture.h
 	<cstdlib>
@@ -104,12 +105,13 @@
 1384646336 source:/home/tb/workspace/2dfighting/fight/src/LTexture.cpp
 	"LTexture.h"
 
-1384657796 source:/home/tb/workspace/2dfighting/fight/src/Character.cpp
+1384750070 source:/home/tb/workspace/2dfighting/fight/src/Character.cpp
 	"Character.h"
 
-1384657985 /home/tb/workspace/2dfighting/fight/include/Character.h
+1384750058 /home/tb/workspace/2dfighting/fight/include/Character.h
 	"Rect.h"
 	"Input.h"
+	"Map.h"
 	<vector>
 
 1384658341 source:/home/tb/workspace/2dfighting/fight/src/Map.cpp
@@ -119,23 +121,34 @@
 	"Rect.h"
 	<vector>
 
-1384652086 /home/tb/workspace/2dfighting/fight/include/Rect.h
+1384749979 /home/tb/workspace/2dfighting/fight/include/Rect.h
 	<SDL2/SDL.h>
 	"Global.h"
 
-1384651970 source:/home/tb/workspace/2dfighting/fight/src/Global.cpp
+1384749525 source:/home/tb/workspace/2dfighting/fight/src/Global.cpp
 	"Global.h"
 
-1384651495 /home/tb/workspace/2dfighting/fight/include/Global.h
+1384748684 /home/tb/workspace/2dfighting/fight/include/Global.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1384654496 source:/home/tb/workspace/2dfighting/fight/src/Rect.cpp
+1384749995 source:/home/tb/workspace/2dfighting/fight/src/Rect.cpp
 	"Rect.h"
 
-1384658065 source:/home/tb/workspace/2dfighting/fight/src/Player.cpp
+1384750461 source:/home/tb/workspace/2dfighting/fight/src/Player.cpp
 	"Player.h"
 
-1384658055 /home/tb/workspace/2dfighting/fight/include/Player.h
+1384749787 /home/tb/workspace/2dfighting/fight/include/Player.h
 	"Character.h"
+	"Global.h"
+	"Map.h"
+
+1384748264 /home/tb/workspace/2dfighting/fight/include/Timer.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<stdio.h>
+	<cstdlib>
+
+1384748259 source:/home/tb/workspace/2dfighting/fight/src/Timer.cpp
+	"Timer.h"
 
