@@ -47,6 +47,7 @@
 		<Unit filename="include/Map.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/Rect.h" />
+		<Unit filename="include/Timer.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Character.cpp" />
 		<Unit filename="src/Global.cpp" />
@@ -55,6 +56,7 @@
 		<Unit filename="src/Map.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Rect.cpp" />
+		<Unit filename="src/Timer.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
