@@ -13,6 +13,9 @@ class Global
         //Screen dimension constants
         static int SCREEN_WIDTH;
         static int SCREEN_HEIGHT;
+        static int SCREEN_RES_WIDTH;
+        static int SCREEN_RES_HEIGHT;
+
 
         static int GRAVITY;
         static float deltaSeconds;
