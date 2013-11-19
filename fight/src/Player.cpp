@@ -25,21 +25,12 @@ void Player::update(){
         this->character->ySpd=-jumpPwr;
     }
 
-
-
-
-    this->character->y+=this->character->ySpd*Global::deltaSeconds;
-    this->character->update();
-    if(this->character->checkWallCollision()){
-        this->character->y-=this->character->ySpd*Global::deltaSeconds;
-        this->character->ySpd=0;
+    if(this->input->getButtonDown("DOWN")){
+        this->character->ySpd=jumpPwr*2;
     }
-    this->character->update();
-    this->character->x+=this->character->xSpd*Global::deltaSeconds;
-    this->character->update();
-    if(this->character->checkWallCollision()){
-        this->character->x-=this->character->xSpd*Global::deltaSeconds;
-        this->character->xSpd=0;
-    }
-    this->character->update();
+
+
+    this->character->moveSpd();
+
+
 }

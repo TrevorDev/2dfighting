@@ -9,7 +9,7 @@ class Rect : public SDL_Rect
     public:
         void draw();
 
-        static bool checkCollision(Rect a, Rect b);
+        static int checkCollision(Rect a, Rect b,int xMove=0, int yMove=0);
         Rect(int x, int y, int w, int h);
         virtual ~Rect();
     protected:

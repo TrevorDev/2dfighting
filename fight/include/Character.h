@@ -4,6 +4,7 @@
 #include "Input.h"
 #include "Map.h"
 #include <vector>
+#include <cmath>
 
 class Character
 {
@@ -12,13 +13,16 @@ class Character
         float y;
         float xSpd;
         float ySpd;
+        bool grounded;
         Rect * body;
         std::vector<Rect*> hitBoxes;
         std::vector<Rect*> hurtBoxes;
 
         void update();
+        void moveSpd();
+        void moveXY(int x, int y);
         void draw();
-        bool checkWallCollision();
+        int checkWallCollision(int xMove, int yMove);
         Character(float x, float y);
         virtual ~Character();
     protected:

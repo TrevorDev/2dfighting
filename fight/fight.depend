@@ -70,10 +70,10 @@
 
 1384574767 /workspace/2dfighting/fight/include/Global.h
 
-1384640748 source:/home/tb/workspace/2dfighting/fight/src/Input.cpp
+1384822095 source:/home/tb/workspace/2dfighting/fight/src/Input.cpp
 	"Input.h"
 
-1384641457 /home/tb/workspace/2dfighting/fight/include/Input.h
+1384822095 /home/tb/workspace/2dfighting/fight/include/Input.h
 	<SDL2/SDL.h>
 	<string>
 	<iostream>
@@ -81,7 +81,7 @@
 	<map>
 	<vector>
 
-1384750594 source:/home/tb/workspace/2dfighting/fight/main.cpp
+1384837286 source:/home/tb/workspace/2dfighting/fight/main.cpp
 	<cstdlib>
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -94,7 +94,7 @@
 	"Player.h"
 	"Timer.h"
 
-1384646325 /home/tb/workspace/2dfighting/fight/include/LTexture.h
+1384822095 /home/tb/workspace/2dfighting/fight/include/LTexture.h
 	<cstdlib>
 	<SDL2/SDL.h>
 	"Input.h"
@@ -102,53 +102,54 @@
 	<stdio.h>
 	<string>
 
-1384646336 source:/home/tb/workspace/2dfighting/fight/src/LTexture.cpp
+1384822095 source:/home/tb/workspace/2dfighting/fight/src/LTexture.cpp
 	"LTexture.h"
 
-1384750070 source:/home/tb/workspace/2dfighting/fight/src/Character.cpp
+1384837895 source:/home/tb/workspace/2dfighting/fight/src/Character.cpp
 	"Character.h"
 
-1384750058 /home/tb/workspace/2dfighting/fight/include/Character.h
+1384837749 /home/tb/workspace/2dfighting/fight/include/Character.h
 	"Rect.h"
 	"Input.h"
 	"Map.h"
 	<vector>
+	<cmath>
 
-1384658341 source:/home/tb/workspace/2dfighting/fight/src/Map.cpp
+1384822095 source:/home/tb/workspace/2dfighting/fight/src/Map.cpp
 	"Map.h"
 
-1384658269 /home/tb/workspace/2dfighting/fight/include/Map.h
+1384822095 /home/tb/workspace/2dfighting/fight/include/Map.h
 	"Rect.h"
 	<vector>
 
-1384749979 /home/tb/workspace/2dfighting/fight/include/Rect.h
+1384836248 /home/tb/workspace/2dfighting/fight/include/Rect.h
 	<SDL2/SDL.h>
 	"Global.h"
 
-1384749525 source:/home/tb/workspace/2dfighting/fight/src/Global.cpp
+1384822095 source:/home/tb/workspace/2dfighting/fight/src/Global.cpp
 	"Global.h"
 
-1384748684 /home/tb/workspace/2dfighting/fight/include/Global.h
+1384822095 /home/tb/workspace/2dfighting/fight/include/Global.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 
-1384749995 source:/home/tb/workspace/2dfighting/fight/src/Rect.cpp
+1384836841 source:/home/tb/workspace/2dfighting/fight/src/Rect.cpp
 	"Rect.h"
 
-1384750461 source:/home/tb/workspace/2dfighting/fight/src/Player.cpp
+1384837820 source:/home/tb/workspace/2dfighting/fight/src/Player.cpp
 	"Player.h"
 
-1384749787 /home/tb/workspace/2dfighting/fight/include/Player.h
+1384822095 /home/tb/workspace/2dfighting/fight/include/Player.h
 	"Character.h"
 	"Global.h"
 	"Map.h"
 
-1384748264 /home/tb/workspace/2dfighting/fight/include/Timer.h
+1384822095 /home/tb/workspace/2dfighting/fight/include/Timer.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<stdio.h>
 	<cstdlib>
 
-1384748259 source:/home/tb/workspace/2dfighting/fight/src/Timer.cpp
+1384822095 source:/home/tb/workspace/2dfighting/fight/src/Timer.cpp
 	"Timer.h"
 

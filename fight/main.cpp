@@ -36,7 +36,7 @@ int main ( int argc, char** argv )
         Global::deltaSeconds = delta.getDeltaMilliseconds()/1000.f;
         Input::update();
         p1->update();
-        p2->update();
+        //p2->update();
         if(p1->input->getButtonDown("EXIT")){
             done=1;
         }
@@ -51,7 +51,7 @@ int main ( int argc, char** argv )
         SDL_RenderClear( Global::gameRenderer );
         Map::currentMap->draw();
         p1->character->draw();
-        p2->character->draw();
+        //p2->character->draw();
         //Update screen
         SDL_RenderPresent( Global::gameRenderer );
     }

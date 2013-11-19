@@ -13,7 +13,7 @@ Rect::~Rect()
     //dtor
 }
 
-bool Rect::checkCollision(Rect a, Rect b){
+int Rect::checkCollision(Rect a, Rect b, int xMove, int yMove){
     //The sides of the rectangles
     int leftA, leftB;
     int rightA, rightB;
@@ -35,25 +35,35 @@ bool Rect::checkCollision(Rect a, Rect b){
     //If any of the sides from A are outside of B
     if( bottomA <= topB )
     {
-        return false;
+        return 0;
     }
 
     if( topA >= bottomB )
     {
-        return false;
+        return 0;
     }
 
     if( rightA <= leftB )
     {
-        return false;
+        return 0;
     }
 
     if( leftA >= rightB )
     {
-        return false;
+        return 0;
     }
 
-    return true;
+    if(xMove>0){
+        return leftB-rightA;
+    }else if(xMove<0){
+        return rightB-leftA;
+    }else if(yMove>0){
+        return topB-bottomA;
+    }else if(yMove<0){
+        return bottomB-topA;
+    }
+
+    return 1;
 }
 
 void Rect::draw(){
