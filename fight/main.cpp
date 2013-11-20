@@ -17,11 +17,11 @@ int main ( int argc, char** argv )
         return 1;
     }
 
-    Player * p1 = new Player(new Input("game.conf","PLAYER1"));
+    Player * p1 = new Player(new Input(Global::CONFIG_FILE,"PLAYER1"));
     p1->character=new Character(300,0);
     p1->character->body=new Rect(0,0,30,30);
 
-    Player * p2 = new Player(new Input("game.conf","PLAYER2"));
+    Player * p2 = new Player(new Input(Global::CONFIG_FILE,"PLAYER2"));
     p2->character=new Character(350,0);
     p2->character->body=new Rect(0,0,30,30);
 

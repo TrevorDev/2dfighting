@@ -2,6 +2,10 @@
 #define GLOBAL_H
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include "Config.h"
+#include <string>
+
+
 class Global
 {
     public:
@@ -15,6 +19,7 @@ class Global
         static int SCREEN_HEIGHT;
         static int SCREEN_RES_WIDTH;
         static int SCREEN_RES_HEIGHT;
+        static std::string CONFIG_FILE;
 
 
         static int GRAVITY;

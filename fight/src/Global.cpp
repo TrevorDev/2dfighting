@@ -7,6 +7,7 @@ int Global::SCREEN_HEIGHT;
 int Global::SCREEN_RES_WIDTH;
 int Global::SCREEN_RES_HEIGHT;
 int Global::GRAVITY;
+std::string Global::CONFIG_FILE;
 float Global::deltaSeconds;
 
 Global::Global()
@@ -20,10 +21,13 @@ Global::~Global()
 }
 
 int Global::init(){
+    Global::CONFIG_FILE = "game.conf";
+    Config * config = new Config(Global::CONFIG_FILE);
+
     Global::SCREEN_WIDTH=960;
     Global::SCREEN_HEIGHT=540;
-    Global::SCREEN_RES_WIDTH=960;
-    Global::SCREEN_RES_HEIGHT=540;
+    Global::SCREEN_RES_WIDTH=atoi(config->getSetting("GAMESETTINGS","RES_X").c_str());
+    Global::SCREEN_RES_HEIGHT=atoi(config->getSetting("GAMESETTINGS","RES_Y").c_str());;
 
     Global::GRAVITY=840;
 
@@ -47,7 +51,11 @@ int Global::init(){
     }
 
     //Create window
-    Global::gameWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Global::SCREEN_RES_WIDTH, Global::SCREEN_RES_HEIGHT, SDL_WINDOW_SHOWN);
+    Uint32 flags = SDL_WINDOW_SHOWN;
+    if(config->getSetting("GAMESETTINGS","WINDOW_BORDER").compare("FALSE")==0){
+        flags = flags|SDL_WINDOW_BORDERLESS;
+    }
+    Global::gameWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Global::SCREEN_RES_WIDTH, Global::SCREEN_RES_HEIGHT, flags);
     if( Global::gameWindow == NULL )
     {
         printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
