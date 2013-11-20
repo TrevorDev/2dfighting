@@ -8,6 +8,7 @@ class Map
     public:
         static Map * currentMap;
         std::vector<Rect*> walls;
+        Rect * inMap;
 
         static void loadMap(Map * m);
         void draw();

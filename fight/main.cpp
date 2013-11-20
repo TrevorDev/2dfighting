@@ -19,15 +19,15 @@ int main ( int argc, char** argv )
 
     Player * p1 = new Player(new Input("game.conf","PLAYER1"));
     p1->character=new Character(300,0);
-    p1->character->body=new Rect(0,0,20,20);
+    p1->character->body=new Rect(0,0,30,30);
 
     Player * p2 = new Player(new Input("game.conf","PLAYER2"));
     p2->character=new Character(350,0);
-    p2->character->body=new Rect(0,0,20,20);
+    p2->character->body=new Rect(0,0,50,50);
 
     Map::loadMap(new Map());
     Map::currentMap->walls.push_back(new Rect(Global::SCREEN_WIDTH/2-(500/2),Global::SCREEN_HEIGHT*(0.7),500,50));
-
+    Map::currentMap->inMap=new Rect(0,0,Global::SCREEN_WIDTH,Global::SCREEN_HEIGHT);
     Timer delta;
     // program main loop
     bool done = false;

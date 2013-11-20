@@ -12,7 +12,6 @@ Player::~Player()
 
 void Player::update(){
     int moveAcc = 820;
-    int jumpPwr = 300;
 
     this->character->ySpd+=Global::GRAVITY*Global::deltaSeconds;
     if(this->input->getButtonDown("LEFT")){
@@ -21,16 +20,32 @@ void Player::update(){
     if(this->input->getButtonDown("RIGHT")){
         this->character->xSpd+=moveAcc*Global::deltaSeconds;
     }
+
+    //jumping
     if(this->input->getButtonDown("UP")){
-        this->character->ySpd=-jumpPwr;
+        if(character->jumpCount%2==0){
+            if(character->maxJumps*2>character->jumpCount){
+                character->jump();
+                character->jumpCount++;
+            }
+        }
+    }else{
+        if(character->jumpCount%2==1){
+            character->jumpCount++;
+        }
     }
 
     if(this->input->getButtonDown("DOWN")){
-        this->character->ySpd=jumpPwr*2;
+        this->character->waveDash();
     }
 
 
     this->character->moveSpd();
 
+    //check character died
+    if(!Rect::checkCollision(*character->body, *Map::currentMap->inMap)){
+        this->character->setXY(5,5);
+        this->character->reset();
+    }
 
 }

@@ -6,6 +6,11 @@ Character::Character(float x, float y)
     this->y=y;
     this->xSpd=0;
     this->ySpd=0;
+
+    jumpPwr = 300;
+    jumpCount=0;
+    maxJumps=2;
+
     grounded=false;
 }
 
@@ -27,6 +32,7 @@ void Character::moveSpd(){
     this->moveXY(0,this->ySpd*Global::deltaSeconds);
     if(delta = this->checkWallCollision(0,this->ySpd*Global::deltaSeconds)){
         if(delta<0){
+            jumpCount=0;
             grounded=true;
         }
         this->moveXY(0,delta);
@@ -45,6 +51,25 @@ void Character::moveXY(int x, int y){
     update();
 }
 
+void Character::setXY(int x, int y){
+    this->x=x;
+    this->y=y;
+    update();
+}
+
+void Character::reset(){
+        ySpd=0;
+        xSpd=0;
+        jumpCount=0;
+}
+
+void Character::jump(){
+        ySpd=-jumpPwr;
+}
+
+void Character::waveDash(){
+    ySpd=jumpPwr*2;
+}
 
 void Character::draw(){
     this->body->draw();
