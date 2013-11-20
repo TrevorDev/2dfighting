@@ -23,7 +23,7 @@ int main ( int argc, char** argv )
 
     Player * p2 = new Player(new Input("game.conf","PLAYER2"));
     p2->character=new Character(350,0);
-    p2->character->body=new Rect(0,0,50,50);
+    p2->character->body=new Rect(0,0,30,30);
 
     Map::loadMap(new Map());
     Map::currentMap->walls.push_back(new Rect(Global::SCREEN_WIDTH/2-(500/2),Global::SCREEN_HEIGHT*(0.7),500,50));
@@ -40,11 +40,6 @@ int main ( int argc, char** argv )
         if(p1->input->getButtonDown("EXIT")){
             done=1;
         }
-
-
-        //std::cout << ( Global::deltaSeconds ) << "\n";
-
-
 
         // DRAWING STARTS HERE
         SDL_SetRenderDrawColor( Global::gameRenderer, 0x00, 0x00, 0x00, 0x00 );
